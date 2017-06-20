@@ -1,0 +1,31 @@
+<ion-header-bar >
+    <h1 class="title">登录</h1>
+</ion-header-bar>
+
+
+<ion-view>
+    <ion-content class="has-header has-footer">
+        <div ng-hide="result" class="list list-inset">
+            <label class="item item-input item-floating-label">
+                <input ng-model="order.user_name" type="text" placeholder="请输入联系人"/>
+            </label>
+            <label class="item item-input item-floating-label">
+                <input ng-model="order.phone" type="text" placeholder="请输入联系电话"/>
+            </label>
+            <label class="item item-input item-floating-label">
+                <input ng-model="order.addr" type="text" placeholder="地址"/>
+            </label>
+            <button ng-click="submitOrder()"
+                    class="button button-block button-balanced">确定下单</button>
+        </div>
+        <div class="card" ng-show="result">
+            <div class="item">
+                {{result}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+
+
+

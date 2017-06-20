@@ -1,0 +1,31 @@
+<ion-header-bar >
+  <a class=" back" href="#/sgMain"></a>
+  <h1 class="title">发现</h1>
+</ion-header-bar>
+
+
+<ion-view>
+  <ion-content class="has-header has-footer">
+    <ion-refresher pulling-text="刷新" on-refresh="refresh()"></ion-refresher>
+    <div class="list list-main">
+      <a ng-repeat="title in titleList track by $index"
+         class="item item-text-wrap item-main" href="#/sgDetail/{{title.did}}">
+        <img class="img-center" ng-src="img/{{title.img}}" alt=""/>
+        <div class="item-body item-div">
+          <h2>{{title.name}}</h2>
+          <p>{{title.detail}}</p>
+        </div>
+      </a>
+    </div>
+    <ion-infinite-scroll ng-if="hasMore" on-infinite="loadMore()"></ion-infinite-scroll>
+    <div ng-if="!hasMore">
+      <div class="item-load">没有更多数据可以加载了</div>
+    </div>
+  </ion-content>
+</ion-view>
+
+
+<!--<div ng-include="'tpl/include/footer.html'"></div>-->
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="shuge">
+<head lang="en">
+  <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,minimum-scale=1,width=device-width">
+  <link rel="stylesheet" href="css/ionic.css"/>
+  <link rel="stylesheet" href="css/shuge.css"/>
+  <script src="js/ionic.bundle.js"></script>
+  <script src="js/shuge.js"></script>
+  <title></title>
+</head>
+<body ng-controller="parentCtrl">
+
+<!--指定盛放代码片段的容器-->
+<div ui-view id="div">
+
+</div>
+
+<ion-tabs class="tabs-icon-top {{hideTabs}}">
+  <ion-tab icon-on="ion-ios-glasses" icon-off="ion-ios-glasses-outline"
+           on-select="jump('main','发现')"
+           title="发现"></ion-tab>
+  <ion-tab icon-on="ion-social-buffer" icon-off="ion-social-buffer-outline"
+           on-select="jump('rack','书架')"
+           title="书架"></ion-tab>
+  <ion-tab icon-on="ion-ios-cart" icon-off="ion-ios-cart-outline"
+           on-select="jump('cart','购物车')"
+           badge="data.totalNumInCart"
+           badge-style="badge-assertive"
+           title="购物车"></ion-tab>
+  <ion-tab icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline"
+           on-select="jump('setting','设置')"
+           title="设置"></ion-tab>
+</ion-tabs>
+
+</body>
+</html>

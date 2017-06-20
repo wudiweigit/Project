@@ -1,0 +1,42 @@
+<ion-header-bar >
+    <a class=" icon ion-chevron-left back" href="#/sgRack"></a>
+    <h1 class="title">{{titleNow}}</h1>
+</ion-header-bar>
+
+<ion-view hide-tabs>
+    <ion-content class="has-header has-footer">
+        <div class="list">
+            <ion-slide-box on-slide-changed="slideHasChanged($index)"
+                           class="slider-height"
+                           auto-play="true" does-continue="true"
+                           slide-interval=1500 show-pager="true"
+                           pager-click="pageClick(index)"
+                           active-slide="model.activeIndex"
+                           delegate-handle="slideimgs">
+                <ion-slide class="rack-box" ng-repeat="r_list in r_carousel">
+                    <img  src="img/rack/{{r_list.r_img}}" alt=""/>
+                </ion-slide>
+            </ion-slide-box>
+            <div class="item item-body item-padding list-cart">
+                <h2>{{r_box.r_title}}</h2>
+                <p>{{r_box.r_content}}</p>
+                <b>{{r_box.r_price | currency:'￥'}}</b>
+                <p class="item-p">作者  &nbsp;{{r_box.r_author}}</p>
+                <p class="item-p">出版社  &nbsp;{{r_box.r_press}}</p>
+            </div>
+            <div class="item item-divider text-right">
+                <button class="button button-small button-balanced"
+                        ng-click="addToCart()">加入购物车</button>
+                <button class="button button-small button-energized"
+                        ui-sref="rack">我再看看</button>
+            </div>
+        </div>
+
+
+
+
+    </ion-content>
+</ion-view>
+
+
+

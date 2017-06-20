@@ -1,0 +1,30 @@
+<ion-header-bar ng-controller="detail_imgCtrl">
+    <a class=" icon ion-chevron-left back"
+       ng-click="jump('detail',{id:did})" >返回</a>
+    <span class="center" ng-model="slectIndex">{{slectIndex}}/{{len}}</span>
+</ion-header-bar>
+
+
+<ion-view hide-tabs>
+    <ion-content class="has-header has-footer">
+        <ion-slide-box class="sliders-height" does-continue="true"
+                       delegate-handle="slideimgs" active-slide="slectIndex-1"
+                       on-slide-changed="slideChanged($index)">
+            <ion-slide class="box" ng-repeat="img in img_list track by $index">
+                <img ng-src="img/{{img.img_lg}}" alt=""/>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+<ion-tabs ng-controller="detail_imgCtrl" class="tabs-icon"
+          ng-repeat="img in img_list" >
+    <ion-tab ng-click="jump('detail_imgs',{mid:img.p_did})"
+             icon=" ion-android-contract"></ion-tab>
+    <ion-tab icon="ion-ios-upload"></ion-tab>
+</ion-tabs>

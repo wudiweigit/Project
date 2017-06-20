@@ -1,0 +1,37 @@
+<ion-header-bar>
+    <button ng-click="funcDelete()" class="button button-clear button-dark">{{deleteShowMsg}}</button>
+    <h1 class="title titleNow " >{{titleNow}}</h1>
+    <button ng-click="funcEdit()" class="button button-clear button-dark">{{editShowMsg}}</button>
+</ion-header-bar>
+
+
+<ion-view>
+    <ion-content class="has-header has-footer">
+        <ion-list show-delete="deleteEnable">
+            <ion-item ng-repeat="c_dish in cartList">
+                <div class="row">
+                    <div class="col">
+                        <img src="img/rack/{{c_dish.r_imgsm}}" alt=""/>
+                    </div>
+                    <div class="col col-item" ng-show="!enditEnable">
+                        <h2>{{c_dish.r_title}}</h2>
+                        <p>{{c_dish.r_price+"×"+c_dish.dishCount}}</p>
+                        <ion-delete-button ng-click="deleteItem($index)" class="ion-minus-circled"></ion-delete-button>
+                    </div>
+                    <div class="col col-item" ng-show="enditEnable">
+                        <button ng-click="minus($index)">-</button>
+                        <span>{{c_dish.dishCount}}</span>
+                        <button ng-click="add($index)">+</button>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="text-right text-cart" ng-hide="hasHide">
+            <p class="text-cart-p">{{"总计:"+ sumAll()}}元</p>
+            <button ng-click="jumpToOrder()" class="button button-assertive">确定下单</button>
+        </div>
+    </ion-content>
+</ion-view>
+
+
+

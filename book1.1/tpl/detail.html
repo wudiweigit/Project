@@ -1,0 +1,50 @@
+<ion-header-bar >
+    <a class=" icon ion-chevron-left back" href="#/sgMain"></a>
+    <h1 class="title">发现</h1>
+</ion-header-bar>
+
+
+<ion-view hide-tabs>
+    <ion-content class="has-header has-footer">
+        <!--轮播-->
+        <ion-slide-box auto-play="true" delegate-handle="slideimgs"
+                       doescontinue="true" slide-interva="500" pager="true">
+            <ion-slide ng-repeat="c_list in carousel" >
+                <a href="#/sgDetail_img/{{dish.did}}">
+                    <img ng-src="img/{{c_list.c_img}}"  alt=""/>
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+
+        <!--主体内容-->
+        <div class="list list-cart">
+            <div class="item text item-body l-item">
+                <h2>{{dish.name}}</h2>
+                <p>{{dish.detail}}</p>
+                <h4>{{dish.name_sm}}</h4>
+                <p>{{dish.content_1}}</p>
+                <p>{{dish.content_2}}</p>
+                <p>{{dish.content_3}}</p>
+                <p>{{dish.content_4}}</p>
+            </div>
+        </div>
+            <div class="item tabs ">
+                <a class="tab-item" href="">
+                    <i class="icon ion-thumbsup"> 5</i>
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"> 2</i>
+                </a>
+                <a class="tab-item" href="">
+                    <i class=" icon ion-ios-upload-outline " ></i>
+                </a>
+
+            </div>
+
+
+    </ion-content>
+</ion-view>
+
+
+<!--<div ng-include="'tpl/include/footer.html'"></div>-->
+

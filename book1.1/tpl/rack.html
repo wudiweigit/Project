@@ -1,0 +1,35 @@
+
+<ion-header-bar >
+    <h1 class="title">{{titleNow}}</h1>
+</ion-header-bar>
+
+
+<ion-view>
+    <ion-content class="has-header has-footer">
+        <div class="list list-inset">
+            <div class="item item-input">
+                <input type="text" ng-model="inputTxt.kw" placeholder="请输入书名"/>
+                <i class="icon ion-search"></i>
+            </div>
+        </div>
+        <div class="list list-rack">
+            <a class="item item-thumbnail-left "
+               ng-repeat="r_list in r_box" href="#/sgRack_detail/{{r_list.r_id}}">
+                <img class="response" ng-src="img/rack/{{r_list.r_imgsm}}" alt=""/>
+                <h2>{{r_list.r_title}}</h2>
+                <p>￥{{r_list.r_price}}</p>
+                <p>{{r_list.r_press}}</p>
+            </a>
+            <ion-infinite-scroll ng-if="hasMore" on-infinite="loadMore()"></ion-infinite-scroll>
+            <div ng-if="!hasMore">
+                <div class="item-load">没有更多数据可以加载了</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<!--<div ng-include="'tpl/include/footer.html'"></div>-->
+
+
+
+
